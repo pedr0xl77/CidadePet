@@ -21,7 +21,7 @@ body{
 header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 50px;
     padding: 30px;
     width: 100%;
@@ -37,7 +37,8 @@ header #logo{
 }
 
 #opcao{
-    width: 30%;
+    width: 35%;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,6 +46,8 @@ header #logo{
 
 header nav ul{
     width: 100%;
+    gap: 30px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,16 +55,19 @@ header nav ul{
 
 header nav ul li a{
     color: var(--color-font4);
+    border-radius: 10px;
     font-size: 1rem;
-    transition: background-color .5s;
-    transition:box-shadow .5s;
-    transition: border-radius .5s;
+    width: 100px;
+    height: 40px;
+    padding: 20px;
+    background-color: var(--color-font1);
+    transition: background-color .5s, box-shadow .3s;
 }
 
 header nav ul li a:hover{
     background-color: var(--color-font3);
-    box-shadow: 2,2,3,black;
-    border-radius: 10%;
+    box-shadow: 2px 2px 3px black;
+   
 }
 
 .menu{
@@ -210,17 +216,22 @@ main{
     flex-wrap: wrap;
     display: flex;
     align-items: center;
+    justify-content: center;
 
 }
 
 #filtro .bola{
     text-align: center;
     width: 175px;
-    height: 185px;
-    border-radius: 50%;
+    height: 200px;
     margin-top: 60px;
     cursor: pointer;
     background-color: transparent;
+    transition: height .5s ease;
+}
+
+#filtro .bola:hover{
+    height: 195px;
 }
 
 .bola img{
@@ -250,6 +261,11 @@ main{
     align-items: center;
     justify-items: center;
     border-radius: 3%;
+    transition: box-shadow .5s;
+}
+
+#brinquedos .produto:hover{
+   box-shadow: 2px 2px 3px black;
 }
 
 .produto img{
@@ -298,7 +314,7 @@ footer #redes div a img{
         display: flex;
     }
 
-    header nav{
+    header #opcao{
         display: none;
     }
 
