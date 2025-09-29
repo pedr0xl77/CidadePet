@@ -1,333 +1,298 @@
+/* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-}
-:root{
-    --color-font1: #e2e2e2;
-    --color-font2: #3da5ef;
-    --color-font3: #f0f0f0;
-    --color-font4: #ff7a1b;
-    --color-font5: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
-body{
-    background-color: var(--color-font5);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* PALETA DE CORES */
+:root {
+  --color-bg: #ffffff;
+  --color-header: #2c3e50;
+  --color-primary: #3498db;
+  --color-secondary: #ff7a1b;
+  --color-light: #f4f4f9;
+  --color-dark: #333;
 }
 
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 50px;
-    padding: 30px;
-    width: 100%;
-    height: 75px;
-    background-color: var(--color-font1);
-    overflow: hidden;
-    position: relative;
+/* BODY */
+body {
+  background-color: var(--color-bg);
+  font-family: "Poppins", sans-serif;
+  color: var(--color-dark);
 }
 
-header #logo{
-    width: 65px;
-    background-color: transparent;
+.titulo{
+  text-align: center;
 }
 
-#opcao{
-    width: 35%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: var(--color-header);
+  height: 80px;
+  position: relative;
 }
 
-header nav ul{
-    width: 100%;
-    gap: 30px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+header #logo {
+  width: 65px;
 }
 
-header nav ul li a{
-    color: var(--color-font4);
-    border-radius: 10px;
-    font-size: 1rem;
-    width: 100px;
-    height: 40px;
-    padding: 20px;
-    background-color: var(--color-font1);
-    transition: background-color .5s, box-shadow .3s;
+#opcao {
+  display: flex;
+  align-items: center;
 }
 
-header nav ul li a:hover{
-    background-color: var(--color-font3);
-    box-shadow: 2px 2px 3px black;
-   
+header nav ul {
+  display: flex;
+  gap: 25px;
 }
 
-.menu{
-    width: 35px;
-    height: 25px;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    display: none;
+header nav ul li a {
+  color: var(--color-light);
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.linha{
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-font4);
+header nav ul li a:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-bg);
 }
 
-.linha.active{
-    background-color: transparent;
+/* MENU MOBILE */
+.menu {
+  width: 35px;
+  height: 25px;
+  position: relative;
+  display: none;
+  cursor: pointer;
+  z-index: 10;
 }
 
-.linha::after, .linha::before{
-    content: '';
-    width: 100%;
-    height: 3px;
-    background-color:var(--color-font4);
-    position: absolute;
-    left: 0;
-    transition: .3s;
+.linha {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-secondary);
 }
 
-.linha::after{
-    top: 0;
-}
-.linha.active::after{
-    transform: rotate(45deg) translateY(5px) translateX(15px);
-}
-
-.linha::before{
-    bottom: 0;
-}
-.linha.active::before{
-    transform: rotate(-45deg) translate(5px) translateX(5px);
+.linha::before,
+.linha::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-secondary);
+  position: absolute;
+  left: 0;
+  transition: 0.3s;
 }
 
-.menu-bar{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0%;
-    right: -100%;
-    background-color: #3da5ef;
-    transition: .3s;
+.linha::before { bottom: 0; }
+.linha::after { top: 0; }
+
+.linha.active {
+  background-color: transparent;
+}
+.linha.active::before {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.linha.active::after {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
-.menu-bar.open{
-    right: 0;
+.menu-bar {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  background-color: var(--color-primary);
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.menu-bar nav{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.menu-bar.open {
+  right: 0;
 }
 
-.menu-bar nav ul{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 10px;
+.menu-bar nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.menu-bar nav ul li a{
-    color: var(--color-font4);
-    font-size: 1.6rem;
+.menu-bar nav ul li a {
+  color: var(--color-light);
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
-main{
-    width: 100%;
-
+/* FILTRO */
+#filtro {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.adotar{
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    background-color: var(--color-font2);
-    border-radius: 5px;
-    margin-top: 50px;
-    margin: 10px;
+#filtro .bola {
+  text-align: center;
+  width: 160px;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
-.pets{
-    background-color: var(--color-font1);
-    width: 242px;
-    height: 80%;
-    padding: 20px;
-    align-items: center;
-    justify-items: center;
-    border-radius: 3%;
-    transition: height .5s;
+#filtro .bola img {
+  width: 120px;
 }
 
-.botao{
-    background-color: transparent;
-    margin-top: 10px;
-    width: 100px;
-    border-radius: 10%;
-    cursor: pointer;
-    transition: background-color .5s;
-    transition:box-shadow .3s;
+#filtro .bola:hover {
+  transform: scale(1.05);
 }
 
-.botao:hover{
-    background-color: var(--color-font3);
-    box-shadow: 2px 2px 3px black;
+#filtro h2 {
+  font-size: 1rem;
+  margin-top: 10px;
 }
 
-.botao h3{
-    display: flex;
-    height: 80%;
-    padding: 6px;
-    align-items: center;
-    color:var(--color-font2)
+/* CARDS DE ADOÇÃO */
+.adotar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  margin: 40px 20px;
 }
 
-.pets img{
-    width:220px;
-    display: flex;
+.pets {
+  background-color: var(--color-bg);
+  width: 250px;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-#filtro{
-    display: flex;
-    gap: 10px;
-    width:100%;
-    height:100%;
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.pets:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-#filtro .bola{
-    text-align: center;
-    width: 175px;
-    height: 200px;
-    margin-top: 60px;
-    cursor: pointer;
-    background-color: transparent;
-    transition: height .5s ease;
+.pets img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-#filtro .bola:hover{
-    height: 195px;
+/* BOTÃO */
+.botao {
+  display: inline-block;
+  background-color: var(--color-primary);
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.bola img{
-    width: 150px;
+.botao h3 {
+  color: var(--color-bg);
+  font-size: 0.9rem;
 }
 
-
-#brinquedos{
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    background-color: var(--color-font2);
-    border-radius: 5px;
-    margin-top: 50px;
-    margin: 5px;
+.botao:hover {
+  background-color: var(--color-secondary);
 }
 
-#brinquedos .produto{
-    background-color: var(--color-font1);
-    width: 242px;
-    height: 90%;
-    padding: 20px;
-    align-items: center;
-    justify-items: center;
-    border-radius: 3%;
-    transition: box-shadow .5s;
+/* PRODUTOS */
+#brinquedos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  margin: 40px 20px;
 }
 
-#brinquedos .produto:hover{
-   box-shadow: 2px 2px 3px black;
+.produto {
+  background-color: var(--color-bg);
+  width: 220px;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.produto img{
-    width:200px;
-    display: flex;
-    object-fit: cover;
+.produto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-footer{
-    width: 100%;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: var(--color-font1);
-    border-top: 1px solid var(--color-4);
-    color: var(--color-1);
+.produto img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-footer nav{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+/* FOOTER */
+footer {
+  background-color: var(--color-header);
+  color: var(--color-light);
+  text-align: center;
+  padding: 20px;
 }
 
-footer #redes{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer #redes {
+  margin-top: 10px;
 }
 
 footer #redes div {
-    display: flex;
-    gap:10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
-footer #redes div a img{
-    width: 30px;
+footer #redes div a img {
+  width: 28px;
+  transition: transform 0.3s;
 }
 
-@media (width < 768px){
-    .menu{
-        display: flex;
-    }
+footer #redes div a img:hover {
+  transform: scale(1.1);
+}
 
-    header #opcao{
-        display: none;
-    }
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .menu { display: block; }
+  #opcao { display: none; }
 
-    #brinquedos, .adotar{
-        height: fit-content;
-        padding: 5px;
-    }
+  .adotar, #brinquedos {
+      gap: 15px;
+  }
 
-    #brinquedos .produto, .pets{
-        width: 45%;
-    }
+  .pets, .produto {
+      width: 45%;
+  }
+}
 
-    .produto img, .pets img{
-        width: 90%;
-    }
+@media (max-width: 480px) {
+  .pets, .produto {
+      width: 100%;
+  }
 }
