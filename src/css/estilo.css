@@ -164,17 +164,49 @@ header nav ul li a:hover {
   margin-top: 10px;
 }
 
-/* CARDS DE ADOÇÃO */
-.adotar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 20px;
+/* CARROSSEL */
+
+.carrossel  {
+  overflow: hidden;
+}
+
+.carrossel-lista{ 
+  position: relative;
   background-color: var(--color-primary);
   border-radius: 8px;
   margin: 40px 20px;
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
+
+.btn-carrossel{
+  position: absolute;
+  top:50%;
+  transition: translateY(-50%);
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn-carrossel:hover{
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.btn-anterior{
+  left: 0;
+}
+
+.btn-proximo{
+  right: 0;
+}
+
 
 .pets {
   background-color: var(--color-bg);
